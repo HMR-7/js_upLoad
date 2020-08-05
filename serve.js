@@ -5,7 +5,6 @@ var app = express();
 var imgData = ''
 //过滤data:URL
 app.get('/up', function (req, res) {
-    console.log(1111);
     console.log(req.query);
     let imgData = req.query.url
     var base64Data = imgData.replace(/^data:image\/\w+;base64,/, "");
@@ -15,10 +14,10 @@ app.get('/up', function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            console.log(dataBuffer, '保存成功');
+            console.log(dataBuffer, '图片已保存至桌面');
         }
     })
 });
 app.listen(3031, () => {
-    console.log('服务已启动');
+    console.log('服务已启动，浏览器输入：http://localhost:3031/');
 });
